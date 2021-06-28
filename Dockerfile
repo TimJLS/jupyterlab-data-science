@@ -1,4 +1,4 @@
-FROM timsu27/general-jupyterlab:1.0.1-python3.8
+FROM timsu27/general-jupyterlab:1.0.4-python3.8
 
 #LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
 
@@ -83,6 +83,6 @@ RUN julia -e 'import Pkg; Pkg.update()' && \
     chmod -R go+rx "${CONDA_DIR}/share/jupyter" && \
     rm -rf "${HOME}/.local" && \
     fix-permissions "${JULIA_PKGDIR}" "${CONDA_DIR}/share/jupyter"
-USER maker
+USER $NB_USER
 WORKDIR $HOME
 
